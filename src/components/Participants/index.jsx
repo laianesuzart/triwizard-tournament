@@ -1,6 +1,8 @@
 import { Component } from "react";
 import PartCard from "../PartCard";
 
+import './style.scss';
+
 class Participants extends Component {
 
     randomIndex = (max) => {

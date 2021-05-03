@@ -1,0 +1,16 @@
+.card {
+    border: 4px solid;
+    border-radius: 20px;
+
+
+    .charBox {
+
+
+        img {
+            width: 300px;
+            height: 400px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+    }
+}

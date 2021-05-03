@@ -1,26 +1,36 @@
 import { Component } from 'react';
 
-import './style.module.scss';
+import './style.scss';
 
 class PartCard extends Component {
     render() {
-        const { char } = this.props;
+        const { house, image, name, wand, patronus} = this.props.char;
 
         return(
-            <div className="card">
+            <div className="card" style={{borderColor: 
+            (house === 'Gryffindor') ? '#740001'
+            : (house === 'Slytherin') ? '#1A472A'
+            : (house === 'Hufflepuff') ? '#FFD800'
+            : '#0E1A40'}}>
                 <figure className="houseBox">
                     <img src="" alt=""/>
-                    <figcaption>{char.house}</figcaption>
+                    <figcaption style={{color: 
+                    (house === 'Gryffindor') ? '#740001'
+                    : (house === 'Slytherin') ? '#1A472A'
+                    : (house === 'Hufflepuff') ? '#FFD800'
+                    : '#0E1A40'}}>
+                        {house}
+                    </figcaption>
                 </figure>
                 
                 <figure className="charBox">
-                    <img src={char.image} alt={char.name}/>
-                    <figcaption>{char.name}</figcaption>
+                    <img src={image} alt={name}/>
+                    <figcaption>{name}</figcaption>
                 </figure>
 
                 <div className="bottomBox">
-                    <img src="" alt={char.wand.wood}/> 
-                    <img src="" alt={char.patronus}/>
+                    <img src="" alt={wand.wood}/> 
+                    <img src="" alt={patronus}/>
                 </div>
 
             </div>
