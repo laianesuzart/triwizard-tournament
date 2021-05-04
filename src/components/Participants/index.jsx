@@ -35,11 +35,14 @@ class Participants extends Component {
     }
 
     render() {
-        const { list } = this.props;
+        const { list, newParts } = this.props;
   
         return(
-            <div className="container">
-                {this.getParticipants(list).map((char, index) => <PartCard char={char} key={index}/>)}
+            <div className="partContainer">
+                <div className="cardContainer">
+                    {this.getParticipants(list).map((char, index) => <PartCard char={char} key={index}/>)}
+                </div>
+                <button onClick={() => newParts('http://hp-api.herokuapp.com/api/characters/students')}>Select again</button>
             </div>
         );
     }
