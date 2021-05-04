@@ -1,24 +1,34 @@
 import { Component } from 'react';
 
+import Gryffindor from '../../assets/img/gryffindor.png';
+import Slytherin from '../../assets/img/slytherin.png';
+import Hufflepuff from '../../assets/img/hufflepuff.png';
+import Ravenclaw from '../../assets/img/ravenclaw.png';
+
 import './style.scss';
 
 class PartCard extends Component {
     render() {
-        const { house, image, name, wand, patronus} = this.props.char;
+        const { house, image, name } = this.props.char;
+        const colors = {
+            Gryffindor: '#740001',
+            Slytherin: '#1A472A',
+            Hufflepuff: '#FFD800',
+            Ravenclaw: '#0E1A40'
+        };
+        const crests = {
+            Gryffindor: Gryffindor,
+            Slytherin: Slytherin,
+            Hufflepuff: Hufflepuff,
+            Ravenclaw: Ravenclaw
+        };
 
         return(
-            <div className="card" style={{borderColor: 
-            (house === 'Gryffindor') ? '#740001'
-            : (house === 'Slytherin') ? '#1A472A'
-            : (house === 'Hufflepuff') ? '#FFD800'
-            : '#0E1A40'}}>
+            <div className="card" style={{borderColor: colors[house]}}>
+
                 <figure className="houseBox">
-                    <img src="" alt=""/>
-                    <figcaption style={{color: 
-                    (house === 'Gryffindor') ? '#740001'
-                    : (house === 'Slytherin') ? '#1A472A'
-                    : (house === 'Hufflepuff') ? '#FFD800'
-                    : '#0E1A40'}}>
+                    <img src={crests[house]} alt={house}/>
+                    <figcaption style={{color: colors[house]}}>
                         {house}
                     </figcaption>
                 </figure>
@@ -27,12 +37,7 @@ class PartCard extends Component {
                     <img src={image} alt={name}/>
                     <figcaption>{name}</figcaption>
                 </figure>
-
-                <div className="bottomBox">
-                    <img src="" alt={wand.wood}/> 
-                    <img src="" alt={patronus}/>
-                </div>
-
+                
             </div>
         );
     }

@@ -2,15 +2,37 @@
     border: 4px solid;
     border-radius: 20px;
 
+    .houseBox {
+        display: flex;
+        align-items: center;
+        gap: 15%;
+        background-color: #000;
+        border-radius: 18px 18px 0 0;
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    }
 
     .charBox {
+        background-color: #000;
+        border-radius: 0 0 18px 18px;
 
+        figcaption {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
 
         img {
             width: 300px;
             height: 400px;
-            object-fit: contain;
-            border-radius: 10px;
+            object-fit: cover;
+            object-position: center top;
+            
         }
     }
 }

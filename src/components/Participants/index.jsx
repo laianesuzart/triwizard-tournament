@@ -10,21 +10,28 @@ class Participants extends Component {
     }
 
     getParticipants = (array) => {
-        const max = array.length;
+        const houses = ['Gryffindor', 'Slytherin', 'Hufflepuff', 'Ravenclaw'];
+        const max = houses.length;
 
-        let firstPart = 0;
-        let secondPart = 0;
-        let thirdPart = 0;
+        let firstHouse = 0;
+        let secondHouse = 0;
+        let thirdHouse = 0;
 
-        while (firstPart === secondPart || secondPart === thirdPart || firstPart === thirdPart) {
-            firstPart = this.randomIndex(max);
-            secondPart = this.randomIndex(max);
-            thirdPart = this.randomIndex(max);
+        while (firstHouse === secondHouse || secondHouse === thirdHouse || firstHouse === thirdHouse) {
+            firstHouse = this.randomIndex(max);
+            secondHouse = this.randomIndex(max);
+            thirdHouse = this.randomIndex(max);
         }
 
-        const participants = [array[firstPart], array[secondPart], array[thirdPart]];
+        const firstHouseArray = array.filter(char => char.house === houses[firstHouse]);
+        const secondHouseArray = array.filter(char => char.house === houses[secondHouse]);
+        const thirdHouseArray = array.filter(char => char.house === houses[thirdHouse]);
 
-        return participants;
+        const firstPart = firstHouseArray[this.randomIndex(firstHouseArray.length)];
+        const secondPart = secondHouseArray[this.randomIndex(secondHouseArray.length)];
+        const thirdPart = thirdHouseArray[this.randomIndex(thirdHouseArray.length)];
+
+        return [firstPart, secondPart, thirdPart];
     }
 
     render() {
