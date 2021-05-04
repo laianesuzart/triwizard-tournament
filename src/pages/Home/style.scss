@@ -1,0 +1,31 @@
+.homeBtn {
+    background-color: #01091e;
+    padding: 0.4rem;
+    border-radius: 12px;
+    animation: changeColor 2s alternate-reverse linear infinite;
+
+    &:hover a {
+        color: gold;
+    }
+
+    a {
+        text-decoration: none;
+        color: #FFF;
+        font-size: 3rem;
+        font-family: 'HP';
+        text-transform: capitalize;
+        transition: color 200ms ease-in-out;
+    }
+}
+
+@keyframes changeColor {
+    from {
+        background-color: #01091e;
+    }
+    50% {
+        background-color: #021B79;
+    }
+    to {
+        background-color: #0575E6;
+    }
+}

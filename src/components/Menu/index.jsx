@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from 'react-router-dom';
 import { AiFillHome, AiFillLinkedin } from 'react-icons/ai';
 import { GiTrophyCup, GiCrystalWand } from 'react-icons/gi';
 import { FaAngleDoubleRight } from 'react-icons/fa';
@@ -7,26 +8,33 @@ import './style.scss';
 
 class Menu extends Component {
     render() {
-        const { option } = this.props;
         return(
             <nav>
                 <ul>
                     <li className="title">
-                        <button>
+                        <a href="https://www.wizardingworld.com/" target="_blank" rel="noreferrer">
                             <span className="text">Hogwarts</span><FaAngleDoubleRight className="icon arrow"/>
-                        </button>
+                        </a>
                     </li>
                     <li>
-                        <button><AiFillHome className="icon"/><span className="text">home</span></button>
+                        <Link to="/">
+                            <AiFillHome className="icon"/><span className="text">home</span>
+                        </Link>
                     </li>
                     <li>
-                        <button onClick={() => option('http://hp-api.herokuapp.com/api/characters/students')}><GiTrophyCup className="icon"/><span className="text">champions</span></button>
+                        <Link to="/champions">
+                            <GiTrophyCup className="icon"/><span className="text">champions</span>
+                        </Link>
                     </li>
                     <li>
-                        <button><GiCrystalWand className="icon"/><span className="text">members</span></button>
+                        <Link to="/members">
+                            <GiCrystalWand className="icon"/><span className="text">members</span>
+                        </Link>
                     </li>
                     <li>
-                        <button><AiFillLinkedin className="icon"/><span className="text">azulazi</span></button>
+                        <a href="https://www.linkedin.com/in/laianesuzart/" target="_blank" rel="noreferrer">
+                            <AiFillLinkedin className="icon"/><span className="text">azulazi</span>
+                        </a>
                     </li>
                     {/* <li>
                         <button>Students</button>
