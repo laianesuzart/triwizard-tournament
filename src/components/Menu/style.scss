@@ -13,13 +13,43 @@ nav {
         display: block;
     }
 
+    &:hover .title .arrow {
+        transform: rotate(-540deg);
+    }
+
     ul {
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 100%;
+
+        .title {
+            margin-bottom: 1rem;
+
+            button {
+                background-color: #051d47;
+                filter: grayscale(60%);
+
+                span {
+                    font-family: 'HP';
+                    font-variant: normal;
+                    font-size: 2.8rem;
+                    margin-right: 1rem;
+                }
+                .arrow {
+                    font-size: 2.5rem;
+                    transform: rotate(0);
+                    transition: all 200ms ease-in-out;
+                }
+            }
+        }
 
         li {
             width: 100%;
+
+            &:last-child {
+                margin-top: auto;
+            }
             button {
                 width: 100%;
                 height: 5rem;
@@ -35,14 +65,15 @@ nav {
 
                 span {
                     display: none;
-                    font-size: 1rem;
+                    font-size: 1.2rem;
+                    font-variant: small-caps;
                     margin-left: 1rem;
                 }
 
                 .icon {
                     font-size: 1.5rem;
                     min-width: 2rem;
-                    margin: 0 1.5rem;
+                    margin: 0 1rem;
                     color: #0d738d;
                     transition: color 200ms ease-in-out;
                 }

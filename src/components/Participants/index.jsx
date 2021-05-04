@@ -42,7 +42,7 @@ class Participants extends Component {
                 <div className="cardContainer">
                     {this.getParticipants(list).map((char, index) => <PartCard char={char} key={index}/>)}
                 </div>
-                <button onClick={() => newParts('http://hp-api.herokuapp.com/api/characters/students')}>Select again</button>
+                <button onClick={() => newParts('http://hp-api.herokuapp.com/api/characters/students')}>select again</button>
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import { Component } from "react";
-import { AiFillHome } from 'react-icons/ai';
+import { AiFillHome, AiFillLinkedin } from 'react-icons/ai';
 import { GiTrophyCup, GiCrystalWand } from 'react-icons/gi';
+import { FaAngleDoubleRight } from 'react-icons/fa';
 
 import './style.scss';
 
@@ -10,14 +11,22 @@ class Menu extends Component {
         return(
             <nav>
                 <ul>
-                    <li>
-                        <button><AiFillHome className="icon"/><span className="text">Home</span></button>
+                    <li className="title">
+                        <button>
+                            <span className="text">Hogwarts</span><FaAngleDoubleRight className="icon arrow"/>
+                        </button>
                     </li>
                     <li>
-                        <button onClick={() => option('http://hp-api.herokuapp.com/api/characters/students')}><GiTrophyCup className="icon"/><span className="text">Select Champions</span></button>
+                        <button><AiFillHome className="icon"/><span className="text">home</span></button>
                     </li>
                     <li>
-                        <button><GiCrystalWand className="icon"/><span className="text">All Characters</span></button>
+                        <button onClick={() => option('http://hp-api.herokuapp.com/api/characters/students')}><GiTrophyCup className="icon"/><span className="text">champions</span></button>
+                    </li>
+                    <li>
+                        <button><GiCrystalWand className="icon"/><span className="text">members</span></button>
+                    </li>
+                    <li>
+                        <button><AiFillLinkedin className="icon"/><span className="text">azulazi</span></button>
                     </li>
                     {/* <li>
                         <button>Students</button>

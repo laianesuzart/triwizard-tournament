@@ -1,6 +1,29 @@
-.cardContainer {
-    display: flex;
-    gap: 15px;
-    width: 780px;
-    margin: 0 auto;
+.partContainer {
+
+    .cardContainer {
+        display: flex;
+        gap: 15px;
+        width: 780px;
+        margin: 0 auto;
+    }
+
+    button {
+        font-variant: small-caps;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        padding: 0 6px 6px;
+        background-color: #01091e;
+        border-radius: 8px;
+        box-shadow: 2px 3px #0d738d;
+        transition: color 300ms ease-in-out;
+
+        &:hover {
+            color: red;
+        }
+
+        &:active {
+            box-shadow: 1px 1px #0b4958;
+            transform: translateY(3px);
+        }
+    }
 }
