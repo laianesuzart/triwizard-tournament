@@ -2,16 +2,16 @@ import { Component } from "react";
 import MainContainer from "../../components/MainContainer";
 import Participants from "../../components/Participants";
 
-class Page extends Component {
+class Champions extends Component {
     render() {
-        const { list } = this.props;
+        const { list, url, updateUrl, loading } = this.props;
 
         return(
             <MainContainer>
-                <Participants list={list}/>
+                <Participants list={list} url={url} updateUrl={updateUrl} loading={loading}/>
             </MainContainer>
         );
     }
 }
 
-export default Page;
+export default Champions;

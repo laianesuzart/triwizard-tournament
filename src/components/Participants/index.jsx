@@ -14,7 +14,7 @@ class Participants extends Component {
         const houses = ['Gryffindor', 'Slytherin', 'Hufflepuff', 'Ravenclaw'];
         const max = houses.length;
 
-        const students = array.filter(char => char.hogwartsStudent === true);
+        // const students = array.filter(char => char.hogwartsStudent === true);
 
         let firstHouse = 0;
         let secondHouse = 0;
@@ -26,9 +26,9 @@ class Participants extends Component {
             thirdHouse = this.randomIndex(max);
         }
 
-        const firstHouseArray = students.filter(char => char.house === houses[firstHouse]);
-        const secondHouseArray = students.filter(char => char.house === houses[secondHouse]);
-        const thirdHouseArray = students.filter(char => char.house === houses[thirdHouse]);
+        const firstHouseArray = array.filter(char => char.house === houses[firstHouse]);
+        const secondHouseArray = array.filter(char => char.house === houses[secondHouse]);
+        const thirdHouseArray = array.filter(char => char.house === houses[thirdHouse]);
 
         const firstPart = firstHouseArray[this.randomIndex(firstHouseArray.length)];
         const secondPart = secondHouseArray[this.randomIndex(secondHouseArray.length)];
@@ -38,12 +38,12 @@ class Participants extends Component {
     }
 
     render() {
-        const { list } = this.props;
+        const { list, url, updateUrl, loading } = this.props;
   
         return(
             <div className="partContainer">
                 <div className="cardContainer">
-                    {this.getParticipants(list).map((char, index) => <PartCard char={char} key={index}/>)}
+                    {!loading && this.getParticipants(list).map((char, index) => <PartCard char={char} key={index}/>)}
                 </div>
                 <button>
                     <Link to="/champions">select again</Link>

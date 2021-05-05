@@ -4,11 +4,13 @@ import MainContainer from "../../components/MainContainer";
 
 import './style.scss';
 
-class Page extends Component {
+class Home extends Component {
     render() {
+        const { url, updateUrl } = this.props;
+
         return(
             <MainContainer>
-                <button className="homeBtn">
+                <button className="homeBtn" onClick={() => updateUrl(`${url}/students`)}>
                     <Link to="/champions">select the champions</Link>
                 </button>
             </MainContainer>
@@ -16,4 +18,4 @@ class Page extends Component {
     }
 }
 
-export default Page;
+export default Home;

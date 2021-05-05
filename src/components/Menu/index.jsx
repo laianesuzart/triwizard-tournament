@@ -8,8 +8,10 @@ import './style.scss';
 
 class Menu extends Component {
     render() {
+        const { url, updateUrl } = this.props;
+        
         return(
-            <nav>
+            <nav className="menu">
                 <ul>
                     <li className="title">
                         <a href="https://www.wizardingworld.com/" target="_blank" rel="noreferrer">

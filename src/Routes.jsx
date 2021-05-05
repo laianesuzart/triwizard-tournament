@@ -6,19 +6,16 @@ import Members from './pages/Members';
 
 class Routes extends Component {
     render() {
-        const { list } = this.props;
+        const { list, url, updateUrl, loading } = this.props;
 
         return(
             <Switch>
-                <Route exact path="/">
-                    <Home/>
-                </Route>
+                <Route exact path="/" render={props => <Home {...props} url={url} updateUrl={updateUrl}/>}/>
+  
 
-                <Route exact path="/champions" render={props => <Champions {...props} list={list}/>}/>
+                <Route exact path="/champions" render={props => <Champions {...props} list={list} url={url} updateUrl={updateUrl} loading={loading}/>}/>
                   
-                <Route exact path="/members">
-                    <Members/>
-                </Route>
+                <Route exact path="/members" render={props => <Members {...props} list={list} url={url} updateUrl={updateUrl}/>}/>
             </Switch>
         );
     }

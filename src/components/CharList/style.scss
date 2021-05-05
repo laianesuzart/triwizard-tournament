@@ -1,0 +1,56 @@
+.membersContainer {
+    height: 100%;
+    overflow: hidden;
+    margin-top: 1rem;
+    
+    .filterMenu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        button {
+            font-variant: small-caps;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            background-color: #FFF;
+            padding: 0 6px;
+            border-radius: 6px;
+            border: 2px solid transparent;
+            transition: border 200ms ease-in-out;
+
+            &:hover {
+                border-color: #000;
+            }
+            
+            img {
+                height: 50px;
+                width: 50px;
+            }
+        }
+    }
+
+    .charContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 650px;
+        max-height: 90%;
+        overflow: hidden scroll;
+        padding: 1rem 0;
+        
+        &::-webkit-scrollbar {
+            width: 0.25rem;
+        }
+        
+        &::-webkit-scrollbar-track {
+            background-color: #01091e;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: #0d738d;
+        }
+    }
+}
