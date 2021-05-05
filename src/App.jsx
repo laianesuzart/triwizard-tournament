@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
+import Intro from './components/Intro';
 import Menu from './components/Menu';
 import Routes from './Routes';
 
@@ -11,12 +12,6 @@ class App extends Component {
     url: 'http://hp-api.herokuapp.com/api/characters',
     filteredUrl: ''
   };
-
-  // getCharacters = (url) => {
-  //   fetch(url)
-  //   .then(res => res.json())
-  //   .then(res => this.setState({characters: res}))
-  // }
 
   componentDidMount = () => {
     const { url } = this.state;
@@ -42,6 +37,7 @@ class App extends Component {
      
     return (
       <BrowserRouter>
+          <Intro/>
           <Header/>
           <Menu/>
           <Routes list={characters} url={url} filteredUrl={filteredUrl} updateUrl={this.handleClick} champList={champions}/>
