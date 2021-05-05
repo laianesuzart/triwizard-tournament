@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     characters: [],
     champions: [],
-    url: 'http://hp-api.herokuapp.com/api/characters',
+    url: 'https://hp-api.herokuapp.com/api/characters',
     filteredUrl: ''
   };
 
