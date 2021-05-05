@@ -14,8 +14,6 @@ class Participants extends Component {
         const houses = ['Gryffindor', 'Slytherin', 'Hufflepuff', 'Ravenclaw'];
         const max = houses.length;
 
-        // const students = array.filter(char => char.hogwartsStudent === true);
-
         let firstHouse = 0;
         let secondHouse = 0;
         let thirdHouse = 0;
@@ -38,12 +36,12 @@ class Participants extends Component {
     }
 
     render() {
-        const { list, url, updateUrl, loading } = this.props;
+        const { list } = this.props;
   
         return(
             <div className="partContainer">
                 <div className="cardContainer">
-                    {!loading && this.getParticipants(list).map((char, index) => <PartCard char={char} key={index}/>)}
+                    {this.getParticipants(list).map((char, index) => <PartCard char={char} key={index}/>)}
                 </div>
                 <button>
                     <Link to="/champions">select again</Link>

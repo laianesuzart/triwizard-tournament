@@ -4,11 +4,11 @@ import Participants from "../../components/Participants";
 
 class Champions extends Component {
     render() {
-        const { list, url, updateUrl, loading } = this.props;
+        const { champList } = this.props;
 
         return(
             <MainContainer>
-                <Participants list={list} url={url} updateUrl={updateUrl} loading={loading}/>
+                <Participants list={champList}/>
             </MainContainer>
         );
     }

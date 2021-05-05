@@ -8,8 +8,6 @@ import './style.scss';
 
 class Menu extends Component {
     render() {
-        const { url, updateUrl } = this.props;
-        
         return(
             <nav className="menu">
                 <ul>
@@ -38,28 +36,10 @@ class Menu extends Component {
                             <AiFillLinkedin className="icon"/><span className="text">azulazi</span>
                         </a>
                     </li>
-                    {/* <li>
-                        <button>Students</button>
-                    </li>
-                    <li>
-                        <button>Staff</button>
-                    </li>
-                    <li>
-                        <button>Gryffindor</button>
-                    </li>
-                    <li>
-                        <button>Slytherin</button>
-                    </li>
-                    <li>
-                        <button>Hufflepuff</button>
-                    </li>
-                    <li>
-                        <button>Ravenclaw</button>
-                    </li> */}
                 </ul>
             </nav>
         );
     }
 }
 
-export default Menu
+export default Menu;

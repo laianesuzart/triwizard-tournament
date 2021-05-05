@@ -7,20 +7,22 @@ import Routes from './Routes';
 class App extends Component {
   state = {
     characters: [],
+    champions: [],
     url: 'http://hp-api.herokuapp.com/api/characters',
-    filteredUrl: '',
-    loading: true
+    filteredUrl: ''
   };
 
-  getCharacters = (url) => {
-    fetch(url)
-    .then(res => res.json())
-    .then(res => this.setState({characters: res, loading: false}))
-  }
+  // getCharacters = (url) => {
+  //   fetch(url)
+  //   .then(res => res.json())
+  //   .then(res => this.setState({characters: res}))
+  // }
 
   componentDidMount = () => {
     const { url } = this.state;
-    this.getCharacters(`${url}/students`);
+    fetch(`${url}/students`)
+    .then(res => res.json())
+    .then(res => this.setState({champions: res}))
   }
 
   handleClick = (url) => {
@@ -30,17 +32,19 @@ class App extends Component {
   componentDidUpdate = (_, prevState) => {
     const { filteredUrl } = this.state;
     prevState.filteredUrl !== filteredUrl && 
-    this.getCharacters(filteredUrl);
+    fetch(filteredUrl)
+    .then(res => res.json())
+    .then(res => this.setState({characters: res}))
   }
 
   render() {
-    const { characters, url, filteredUrl, loading } = this.state;
+    const { characters, url, filteredUrl, champions} = this.state;
      
     return (
       <BrowserRouter>
           <Header/>
-          <Menu url={url} updateUrl={this.handleClick}/>
-          <Routes list={characters} url={url} filteredUrl={filteredUrl} updateUrl={this.handleClick} loading={loading}/>
+          <Menu/>
+          <Routes list={characters} url={url} filteredUrl={filteredUrl} updateUrl={this.handleClick} champList={champions}/>
       </BrowserRouter>
     );
   }
