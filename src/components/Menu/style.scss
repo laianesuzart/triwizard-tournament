@@ -24,6 +24,10 @@
         align-items: center;
         height: 100%;
 
+        a {
+            cursor: url(../../assets/img/wand.png), pointer;
+        }
+        
         .title {
             margin-bottom: 1rem;
 
