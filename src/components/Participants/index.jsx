@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
 import PartCard from "../PartCard";
 
 import './style.scss';
 
 function Participants({ list }) {
+    const [selected, setSelected] = useState([]);
 
     const randomIndex = (max) => {
         return Math.floor(Math.random() * max);
@@ -33,14 +34,22 @@ function Participants({ list }) {
 
         return [firstPart, secondPart, thirdPart];
     }
+
+    useEffect(() => {
+        setSelected(getParticipants(list));
+    }, []);
+
+    const selectAgain = () => {
+        setSelected(getParticipants(list))
+    }
   
     return(
         <div className="partContainer">
             <div className="cardContainer">
-                {getParticipants(list).map((char, index) => <PartCard char={char} key={index}/>)}
+                {selected.map((char, index) => <PartCard char={char} key={index}/>)}
             </div>
-            <button>
-                <Link to="/champions">select again</Link>
+            <button onClick={selectAgain}>
+               select again
             </button> 
         </div>
     );

@@ -1,6 +1,7 @@
 .card {
     border: 4px solid;
     border-radius: 20px;
+    animation: showUp 2s;
 
     figcaption {
         font-weight: bold;
@@ -41,5 +42,14 @@
             object-fit: cover;
             object-position: center top;
         }
+    }
+}
+
+@keyframes showUp {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
