@@ -1,49 +1,44 @@
-import { Component } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
 import Intro from './components/Intro';
 import Menu from './components/Menu';
 import Routes from './Routes';
 
-class App extends Component {
-  state = {
-    characters: [],
-    champions: [],
-    url: 'https://hp-api.herokuapp.com/api/characters',
-    filteredUrl: ''
-  };
+function App() {
+  const [characters, setCharacters] = useState([]);
+  const [champions, setChampions] = useState([]);
+  const [filteredUrl, setFilteredUrl] = useState('');
+  const baseUrl = 'https://hp-api.herokuapp.com/api/characters';
 
-  componentDidMount = () => {
-    const { url } = this.state;
-    fetch(`${url}/students`)
+  useEffect(() => {
+    fetch(`${baseUrl}/students`)
     .then(res => res.json())
-    .then(res => this.setState({champions: res}))
+    .then(res => setChampions(res))
+    .catch(err => console.error(err))
+  }, []);
+
+  const handleClick = (url) => {
+    setFilteredUrl(url);
   }
 
-  handleClick = (url) => {
-    this.setState({filteredUrl: url});
-  }
+  useEffect(() => {
+    if (filteredUrl !== '') {
+      fetch(filteredUrl)
+      .then(res => res.json())
+      .then(res => setCharacters(res))
+      .catch(err => console.error(err))
+    }
+  }, [filteredUrl]);
 
-  componentDidUpdate = (_, prevState) => {
-    const { filteredUrl } = this.state;
-    prevState.filteredUrl !== filteredUrl && 
-    fetch(filteredUrl)
-    .then(res => res.json())
-    .then(res => this.setState({characters: res}))
-  }
-
-  render() {
-    const { characters, url, filteredUrl, champions} = this.state;
-     
-    return (
-      <BrowserRouter>
-          <Intro/>
-          <Header/>
-          <Menu/>
-          <Routes list={characters} url={url} filteredUrl={filteredUrl} updateUrl={this.handleClick} champList={champions}/>
-      </BrowserRouter>
-    );
-  }
+  return (
+    <BrowserRouter>
+        <Intro/>
+        <Header/>
+        <Menu/>
+        <Routes list={characters} url={baseUrl} filteredUrl={filteredUrl} updateUrl={handleClick} champList={champions}/>
+    </BrowserRouter>
+  );
 }
 
 export default App;

@@ -1,24 +1,24 @@
-import { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Champions from './pages/Champions';
 import Home from './pages/Home';
 import Members from './pages/Members';
 
-class Routes extends Component {
-    render() {
-        const { list, url, updateUrl, champList } = this.props;
+function Routes({ list, url, updateUrl, champList }) {
+    return(
+        <Switch>
+            <Route exact path="/">
+                <Home url={url} updateUrl={updateUrl}/>
+            </Route>
 
-        return(
-            <Switch>
-                <Route exact path="/" render={props => <Home {...props} url={url} updateUrl={updateUrl}/>}/>
-  
-
-                <Route exact path="/champions" render={props => <Champions {...props} champList={champList}/>}/>
-                  
-                <Route exact path="/members" render={props => <Members {...props} list={list} url={url} updateUrl={updateUrl}/>}/>
-            </Switch>
-        );
-    }
+            <Route exact path="/champions">
+                <Champions champList={champList}/>
+            </Route>
+                
+            <Route exact path="/members">
+                <Members list={list} url={url} updateUrl={updateUrl}/>
+            </Route>
+        </Switch>
+    );
 }
 
 export default Routes;
