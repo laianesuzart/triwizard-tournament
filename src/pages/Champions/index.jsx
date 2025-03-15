@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { getStudents, staleTime } from '../../services/api';
-import MainContainer from '../../components/MainContainer';
 import Participants from '../../components/Participants';
 
 function Champions() {
@@ -15,11 +14,7 @@ function Champions() {
 
   if (error) return 'An error has occurred: ' + error.message;
 
-  return (
-    <MainContainer>
-      <Participants list={data} />
-    </MainContainer>
-  );
+  return <Participants list={data} />;
 }
 
 export default Champions;

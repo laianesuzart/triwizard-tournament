@@ -1,0 +1,13 @@
+header {
+  text-align: center;
+  background-color: #01091e;
+  padding-block: 2rem 1rem;
+  box-shadow: 1px 1px 32px 1px #2e408d;
+
+  & h1 {
+    font-family: 'HP', 'Times New Roman', Times, serif;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    text-shadow: 4px 4px #000;
+    color: var(--text-color);
+  }
+}

@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'HP';
+  src: url(../assets/font/harry_p/HARRYP__.TTF);
+}
+
+:root {
+  --text-color: #fefefe;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  font-family: 'New Tegomin', serif;
+  font-size: 1.2rem;
+  background: linear-gradient(to right, #24243e, #201c4b, #000f28);
+
+}
+
+.full-container {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+}

@@ -8,7 +8,6 @@ import {
   getCharactersByHouse,
   staleTime,
 } from '../../services/api';
-import MainContainer from '../../components/MainContainer';
 
 import BasicCard from '../../components/BasicCard';
 import Gryffindor from '../../assets/img/gryffindor.png';
@@ -62,32 +61,30 @@ function Members() {
   if (error) return 'An error has occurred: ' + error.message;
 
   return (
-    <MainContainer>
-      <div className="membersContainer">
-        <nav className="filterMenu">
-          <button onClick={() => setFilter('all')}>all</button>
-          <button onClick={() => setFilter('staff')}>staff</button>
-          <button onClick={() => setFilter('students')}>students</button>
-          <button onClick={() => setFilter('gryffindor')}>
-            <img src={Gryffindor} alt="Gryffindor" />
-          </button>
-          <button onClick={() => setFilter('slytherin')}>
-            <img src={Slytherin} alt="Slytherin" />
-          </button>
-          <button onClick={() => setFilter('hufflepuff')}>
-            <img src={Hufflepuff} alt="Hufflepuff" />
-          </button>
-          <button onClick={() => setFilter('ravenclaw')}>
-            <img src={Ravenclaw} alt="Ravenclaw" />
-          </button>
-        </nav>
-        <div className="charContainer">
-          {data.map((char) => (
-            <BasicCard char={char} key={char.id} />
-          ))}
-        </div>
+    <div className="membersContainer">
+      <nav className="filterMenu">
+        <button onClick={() => setFilter('all')}>all</button>
+        <button onClick={() => setFilter('staff')}>staff</button>
+        <button onClick={() => setFilter('students')}>students</button>
+        <button onClick={() => setFilter('gryffindor')}>
+          <img src={Gryffindor} alt="Gryffindor" />
+        </button>
+        <button onClick={() => setFilter('slytherin')}>
+          <img src={Slytherin} alt="Slytherin" />
+        </button>
+        <button onClick={() => setFilter('hufflepuff')}>
+          <img src={Hufflepuff} alt="Hufflepuff" />
+        </button>
+        <button onClick={() => setFilter('ravenclaw')}>
+          <img src={Ravenclaw} alt="Ravenclaw" />
+        </button>
+      </nav>
+      <div className="charContainer">
+        {data.map((char) => (
+          <BasicCard char={char} key={char.id} />
+        ))}
       </div>
-    </MainContainer>
+    </div>
   );
 }
 

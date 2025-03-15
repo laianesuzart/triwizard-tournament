@@ -1,13 +1,20 @@
 import { Link } from 'react-router-dom';
-import MainContainer from '../../components/MainContainer';
 
-import './style.scss';
+import './style.css';
 
 function Home() {
   return (
-    <MainContainer>
-      <Link to="/champions">select the champions</Link>
-    </MainContainer>
+    <main className="container">
+      <div className="card">
+        <div className="card__wrapper">
+          <img src="/trophy.jpg" className="card__cover" alt="" />
+        </div>
+        <Link to="/champions" className="card__link">
+          Join the Tournament
+        </Link>
+        <img src="/mashle.webp" className="card__character" alt="" />
+      </div>
+    </main>
   );
 }
 

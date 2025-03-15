@@ -4,18 +4,20 @@ import Intro from './components/Intro';
 import Menu from './components/Menu';
 import Routes from './Routes';
 
+import './styles/index.css';
+
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <>
-      <Intro />
+    <div className="full-container">
+      {/* <Intro /> */}
       <Header />
       <Menu />
       <QueryClientProvider client={queryClient}>
         <Routes />
       </QueryClientProvider>
-    </>
+    </div>
   );
 }
 
