@@ -3,17 +3,24 @@ import { useQuery } from '@tanstack/react-query';
 import { LuRefreshCcw } from 'react-icons/lu';
 
 import { getStudents, staleTime } from '../../services/api';
+import { useLoading, useModal } from '../../store';
 import Card3d from '../../components/Card3d';
 import './style.css';
 
 function Champions() {
-  const { isPending, error, data } = useQuery({
+  const {
+    isPending,
+    error,
+    data = [],
+  } = useQuery({
     queryKey: ['students'],
     queryFn: getStudents,
     staleTime,
   });
 
   const [selected, setSelected] = useState([]);
+  const setLoading = useLoading((state) => state.setLoading);
+  const openModal = useModal((state) => state.openModal);
 
   const randomIndex = (max) => {
     return Math.floor(Math.random() * max);
@@ -30,17 +37,21 @@ function Champions() {
     return Object.keys(keys).map((i) => array[i]);
   };
 
-  useEffect(() => {
-    if (data) setSelected(getParticipants(data));
-  }, [data]);
-
   const selectAgain = () => {
     setSelected(getParticipants(data));
   };
 
-  if (isPending) return 'Loading...';
+  useEffect(() => {
+    setLoading(isPending);
+  }, [isPending]);
 
-  if (error) return 'An error has occurred: ' + error.message;
+  useEffect(() => {
+    if (error) openModal({ title: 'An error has occurred', description: error.message });
+  }, [error]);
+
+  useEffect(() => {
+    if (data.length) setSelected(getParticipants(data));
+  }, [data]);
 
   return (
     <main className="container-flex">
@@ -51,11 +62,11 @@ function Champions() {
             <Card3d char={char} key={char.id} />
           ))}
         </div>
-        {data.length && (
+        {data.length ? (
           <button onClick={selectAgain} className="btn--refresh" title="Refresh options">
             <LuRefreshCcw />
           </button>
-        )}
+        ) : null}
       </div>
     </main>
   );

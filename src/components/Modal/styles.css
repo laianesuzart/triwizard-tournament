@@ -1,0 +1,55 @@
+.modal {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  background-color: #01091ec9;
+  display: grid;
+  place-content: center;
+}
+
+.modal__content {
+  font-family: 'Times New Roman', Times, serif;
+  color: #01091e;
+  background-color: aliceblue;
+  padding: 1.5rem 2.5rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  margin-inline: 16px;
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  p {
+    padding-block: 1rem;
+  }
+
+  .modal__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+
+    button {
+      color: var(--text-color);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      background-color: #01091e;
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover,
+      &:focus-visible {
+        background-color: #0c1f4e;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import {
@@ -8,7 +8,7 @@ import {
   getCharactersByHouse,
   staleTime,
 } from '../../services/api';
-
+import { useLoading, useModal } from '../../store';
 import BasicCard from '../../components/BasicCard';
 import './style.css';
 
@@ -48,20 +48,31 @@ const filterOptions = Object.keys(FILTER_QUERIES);
 function Members() {
   const [filter, setFilter] = useState('all');
   const [btnIndex, setBtnIndex] = useState(0);
-  const { isPending, error, data } = useQuery({
+  const {
+    isPending,
+    error,
+    data = [],
+  } = useQuery({
     queryKey: FILTER_QUERIES[filter].key,
     queryFn: FILTER_QUERIES[filter].fn,
     staleTime,
   });
+
+  const setLoading = useLoading((state) => state.setLoading);
+  const openModal = useModal((state) => state.openModal);
 
   const handleClick = (option, index) => {
     setFilter(option);
     setBtnIndex(index);
   };
 
-  if (isPending) return 'Loading...';
+  useEffect(() => {
+    setLoading(isPending);
+  }, [isPending]);
 
-  if (error) return 'An error has occurred: ' + error.message;
+  useEffect(() => {
+    if (error) openModal({ title: 'An error has occurred', description: error.message });
+  }, [error]);
 
   return (
     <main className="container-flex">

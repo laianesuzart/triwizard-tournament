@@ -1,6 +1,8 @@
 import { useRef } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+import Loading from './components/Loading';
+import Modal from './components/Modal';
 import Header from './components/Header';
 import Menu from './components/Menu';
 import Routes from './Routes';
@@ -14,6 +16,8 @@ function App() {
 
   return (
     <div className="full-container">
+      <Loading />
+      <Modal />
       <Header ref={ref} />
       <Menu ref={ref} />
       <QueryClientProvider client={queryClient}>
