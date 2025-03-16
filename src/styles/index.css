@@ -63,3 +63,9 @@ h3 {
     padding-left: 7rem;
   }
 }
+
+@supports (scrollbar-color: lime hotpink) {
+  html {
+    scrollbar-color: #000f28 #091943;
+  }
+}
