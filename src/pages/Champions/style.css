@@ -10,6 +10,7 @@
   font-size: 1.5rem;
   margin-top: 1rem;
   transition: color 300ms ease-in-out;
+  animation: showUp 2s;
 
   &:is(:hover, :focus-visible) {
     color: gold;
@@ -87,6 +88,15 @@
     &:is(:hover, :focus-visible) {
       text-decoration-color: gold;
     }
+  }
+}
+
+@keyframes showUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
