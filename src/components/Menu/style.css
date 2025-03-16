@@ -1,7 +1,3 @@
-.menu-container {
-  container: menu / inline-size;
-}
-
 .menu {
   position: fixed;
   z-index: 1;
@@ -80,7 +76,7 @@
   }
 }
 
-@container menu (min-width: 480px) {
+@media screen and (min-width: 480px) {
   .menu {
     width: 5rem;
     top: attr(data-top px);

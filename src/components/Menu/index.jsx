@@ -26,42 +26,40 @@ function Menu() {
   }, []);
 
   return (
-    <div className="menu-container">
-      <nav className="menu" data-top={topPosition}>
-        <ul>
-          <li className="title">
-            <a href="https://www.wizardingworld.com/" target="_blank" rel="noreferrer">
-              <span className="text">Hogwarts</span>
-              <FaAngleDoubleRight className="icon arrow" />
-            </a>
-          </li>
-          <li>
-            <Link to="/">
-              <AiFillHome className="icon" />
-              <span className="text">home</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/champions">
-              <GiTrophyCup className="icon" />
-              <span className="text">champions</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/members">
-              <GiCrystalWand className="icon" />
-              <span className="text">members</span>
-            </Link>
-          </li>
-          <li>
-            <a href="https:/github.com/laianesuzart/" target="_blank" rel="noreferrer">
-              <AiFillGithub className="icon" />
-              <span className="text">github</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <nav className="menu" data-top={topPosition}>
+      <ul>
+        <li className="title">
+          <a href="https://www.wizardingworld.com/" target="_blank" rel="noreferrer">
+            <span className="text">Hogwarts</span>
+            <FaAngleDoubleRight className="icon arrow" />
+          </a>
+        </li>
+        <li>
+          <Link to="/">
+            <AiFillHome className="icon" />
+            <span className="text">home</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/champions">
+            <GiTrophyCup className="icon" />
+            <span className="text">champions</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/members">
+            <GiCrystalWand className="icon" />
+            <span className="text">members</span>
+          </Link>
+        </li>
+        <li>
+          <a href="https:/github.com/laianesuzart/" target="_blank" rel="noreferrer">
+            <AiFillGithub className="icon" />
+            <span className="text">github</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   );
 }
 
