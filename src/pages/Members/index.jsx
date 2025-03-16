@@ -10,12 +10,7 @@ import {
 } from '../../services/api';
 
 import BasicCard from '../../components/BasicCard';
-import Gryffindor from '../../assets/img/gryffindor.png';
-import Slytherin from '../../assets/img/slytherin.png';
-import Hufflepuff from '../../assets/img/hufflepuff.png';
-import Ravenclaw from '../../assets/img/ravenclaw.png';
-
-import './style.scss';
+import './style.css';
 
 const FILTER_QUERIES = {
   all: {
@@ -48,43 +43,42 @@ const FILTER_QUERIES = {
   },
 };
 
+const filterOptions = Object.keys(FILTER_QUERIES);
+
 function Members() {
   const [filter, setFilter] = useState('all');
+  const [btnIndex, setBtnIndex] = useState(0);
   const { isPending, error, data } = useQuery({
     queryKey: FILTER_QUERIES[filter].key,
     queryFn: FILTER_QUERIES[filter].fn,
     staleTime,
   });
 
+  const handleClick = (option, index) => {
+    setFilter(option);
+    setBtnIndex(index);
+  };
+
   if (isPending) return 'Loading...';
 
   if (error) return 'An error has occurred: ' + error.message;
 
   return (
-    <div className="membersContainer">
-      <nav className="filterMenu">
-        <button onClick={() => setFilter('all')}>all</button>
-        <button onClick={() => setFilter('staff')}>staff</button>
-        <button onClick={() => setFilter('students')}>students</button>
-        <button onClick={() => setFilter('gryffindor')}>
-          <img src={Gryffindor} alt="Gryffindor" />
-        </button>
-        <button onClick={() => setFilter('slytherin')}>
-          <img src={Slytherin} alt="Slytherin" />
-        </button>
-        <button onClick={() => setFilter('hufflepuff')}>
-          <img src={Hufflepuff} alt="Hufflepuff" />
-        </button>
-        <button onClick={() => setFilter('ravenclaw')}>
-          <img src={Ravenclaw} alt="Ravenclaw" />
-        </button>
+    <main className="container-flex">
+      <h2>Members of Hogwarts</h2>
+      <nav className="filter-menu">
+        {filterOptions.map((opt, index) => (
+          <button key={opt} onClick={() => handleClick(opt, index)} disabled={index === btnIndex}>
+            {opt}
+          </button>
+        ))}
       </nav>
-      <div className="charContainer">
+      <div className="char-grid">
         {data.map((char) => (
           <BasicCard char={char} key={char.id} />
         ))}
       </div>
-    </div>
+    </main>
   );
 }
 

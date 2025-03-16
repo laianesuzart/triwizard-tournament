@@ -1,18 +1,13 @@
+import { houseColors } from '../../styles/utils';
 import './style.css';
 
 function Card3d({ char }) {
   const { image, name, house = '' } = char;
-  const colors = {
-    gryffindor: '#740001',
-    slytherin: '#2f751c',
-    hufflepuff: '#FFD800',
-    ravenclaw: '#01519b',
-  };
 
   return (
-    <div className="card3d" style={{ borderColor: colors[house.toLowerCase()] }}>
+    <div className="card3d" style={{ borderColor: houseColors[house.toLowerCase()] }}>
       <div className="houseBox">
-        <span style={{ color: colors[house.toLowerCase()] }}>{house}</span>
+        <span style={{ color: houseColors[house.toLowerCase()] }}>{house}</span>
       </div>
 
       <figure className="charBox">

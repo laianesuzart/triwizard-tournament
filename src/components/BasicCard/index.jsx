@@ -1,22 +1,17 @@
-import './style.scss';
+import { houseColors } from '../../styles/utils';
+import './style.css';
 
-function BasicCard({char}) {
-    const { house, image, name } = char;
-    const colors = {
-        Gryffindor: '#740001',
-        Slytherin: '#1A472A',
-        Hufflepuff: '#FFD800',
-        Ravenclaw: '#0E1A40'
-    };
+function BasicCard({ char }) {
+  const { image, name, house = '' } = char;
 
-    return(
-        <div className="basicCard" style={{borderColor: colors[house]}}>
-            <figure className="basicFig">
-                <img src={image} alt={name}/>
-                <figcaption>{name}</figcaption>
-            </figure>
-        </div>
-    );
+  return (
+    <div className="basic-card" style={{ borderColor: houseColors[house.toLowerCase()] }}>
+      <figure>
+        <img src={image} alt={name} />
+        <figcaption>{name}</figcaption>
+      </figure>
+    </div>
+  );
 }
 
 export default BasicCard;
