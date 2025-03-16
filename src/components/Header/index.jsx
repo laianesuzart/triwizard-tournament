@@ -1,8 +1,8 @@
 import './style.css';
 
-function Header() {
+function Header({ ref }) {
   return (
-    <header>
+    <header ref={ref}>
       <h1>Triwizard Tournament</h1>
     </header>
   );

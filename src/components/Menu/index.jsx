@@ -6,24 +6,23 @@ import { FaAngleDoubleRight } from 'react-icons/fa';
 
 import './style.css';
 
-function Menu() {
+function Menu({ ref }) {
   const [topPosition, setTopPosition] = useState(0);
 
   useEffect(() => {
-    const controller = new AbortController();
-    const header = document.querySelector('header');
-    setTopPosition(header.getBoundingClientRect().height);
+    const resizeObserver = new ResizeObserver(([entry]) => {
+      if (entry.borderBoxSize) {
+        const height = entry.borderBoxSize[0].blockSize;
+        setTopPosition(height);
+      }
+    });
 
-    window.addEventListener(
-      'resize',
-      () => {
-        setTopPosition(header.getBoundingClientRect().height);
-      },
-      { signal: controller.signal }
-    );
+    if (ref?.current) resizeObserver.observe(ref.current);
 
-    return () => controller.abort();
-  }, []);
+    return () => {
+      if (ref?.current) resizeObserver.unobserve(ref.current);
+    };
+  }, [ref]);
 
   return (
     <nav className="menu" data-top={topPosition}>
