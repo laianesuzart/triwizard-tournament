@@ -11,7 +11,7 @@
   margin-top: 1rem;
   transition: color 300ms ease-in-out;
 
-  &:hover {
+  &:is(:hover, :focus-visible) {
     color: gold;
   }
 

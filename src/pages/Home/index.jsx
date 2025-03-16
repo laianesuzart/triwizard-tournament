@@ -5,7 +5,7 @@ import './style.css';
 function Home() {
   return (
     <main className="container">
-      <div className="card">
+      <div className="card" tabIndex={-1}>
         <div className="card__wrapper">
           <img src="/trophy.jpg" className="card__cover" alt="" />
         </div>

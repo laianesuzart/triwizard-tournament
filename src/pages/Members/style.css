@@ -16,14 +16,15 @@
     border-radius: 4px;
     transition: border 200ms ease-in-out;
 
-    &:not(:disabled):hover {
+    &:not(:disabled):is(:hover, :focus-visible) {
+      outline: none;
       border-color: transparent;
     }
 
     &:disabled {
       cursor: default;
       border-style: solid;
-      border-color: #000f28;
+      border-color: gold;
     }
   }
 }

@@ -46,8 +46,7 @@
       background-color: #01091e;
       transition: background-color 0.3s ease-in-out;
 
-      &:hover,
-      &:focus-visible {
+      &:is(:hover, :focus-visible) {
         background-color: #0c1f4e;
       }
     }

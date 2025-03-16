@@ -13,24 +13,25 @@
   justify-content: center;
   align-items: flex-end;
   perspective: 2500px;
+  outline: none;
 
-  &:hover .card__wrapper {
+  &:is(:hover, :focus-within) .card__wrapper {
     transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
     box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
   }
 
-  &:hover .card__wrapper::before,
+  &:is(:hover, :focus-within) .card__wrapper::before,
   .card__wrapper::after {
     opacity: 1;
   }
 
-  &:hover .card__wrapper::after {
+  &:is(:hover, :focus-within) .card__wrapper::after {
     height: 120px;
   }
 
-  &:hover .card__character {
+  &:is(:hover, :focus-within) .card__character {
     opacity: 1;
     transform: translate3d(0%, -30%, 400px);
   }
@@ -103,7 +104,7 @@
   border: 1px solid gold;
   transition: color 200ms ease-in-out;
 
-  &:hover {
+  &:is(:hover, :focus-visible) {
     color: gold;
   }
 }

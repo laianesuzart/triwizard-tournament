@@ -25,7 +25,7 @@ function Menu({ ref }) {
   }, [ref]);
 
   return (
-    <nav className="menu" data-top={topPosition}>
+    <nav className="menu" data-top={topPosition} tabIndex={-1}>
       <ul>
         <li className="title">
           <a href="https://www.wizardingworld.com/" target="_blank" rel="noreferrer">
