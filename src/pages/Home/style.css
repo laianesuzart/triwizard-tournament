@@ -108,3 +108,21 @@
     color: gold;
   }
 }
+
+.intro {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: linear-gradient(to right, #2f0743, #41295a);
+  overflow: hidden;
+  svg:first-child {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .intro {
+    display: block;
+  }
+}
