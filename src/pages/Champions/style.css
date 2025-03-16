@@ -20,3 +20,98 @@
     transform: translateY(3px);
   }
 }
+
+.clip-wrapper {
+  background-color: #01091e;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: grid;
+  place-items: center;
+  background-color: #091943;
+  animation: 3.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-center forwards;
+
+  svg {
+    max-height: 90%;
+    fill: currentColor;
+    animation: shrink 1s 2s forwards ease-in-out;
+  }
+}
+
+.info-card {
+  position: absolute;
+  text-align: center;
+  opacity: 1;
+  transition-property: display, opacity;
+  transition-duration: 1s;
+  transition-delay: 3s;
+  transition-behavior: allow-discrete;
+
+  @starting-style {
+    opacity: 0;
+  }
+
+  img {
+    width: 120px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 50%;
+    box-shadow: 0 0 4px 0 #fefefe;
+  }
+
+  figcaption {
+    font-weight: bold;
+  }
+
+  p {
+    text-align: start;
+    padding-block-start: 0.5rem;
+  }
+
+  button {
+    text-transform: uppercase;
+    font-family: inherit;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin-top: 8px;
+    text-decoration: underline dashed transparent 2px;
+    text-underline-offset: 6px;
+
+    transition: text-decoration 0.3s ease-in-out;
+
+    &:is(:hover, :focus-visible) {
+      text-decoration-color: gold;
+    }
+  }
+}
+
+@keyframes circle-in-center {
+  from {
+    clip-path: circle(0%);
+  }
+  to {
+    clip-path: circle(150% at center center);
+  }
+}
+
+@keyframes shrink {
+  to {
+    transform: scale(0);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  @keyframes shrink {
+    80% {
+      transform: scale(0.2);
+    }
+    100% {
+      transform: scale(0.2) translate(-100%, -150%);
+    }
+  }
+}
