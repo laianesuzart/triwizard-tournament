@@ -19,7 +19,8 @@ function Champions() {
     return Math.floor(Math.random() * max);
   };
 
-  const getParticipants = (array) => {
+  const getParticipants = (array = []) => {
+    if (!array.length) return [];
     const max = array.length;
     const keys = {};
     while (Object.keys(keys).length < 3) {
@@ -46,13 +47,15 @@ function Champions() {
       <h2>Choose your champion</h2>
       <div>
         <div className="card-container">
-          {selected.map((char, index) => (
+          {selected.map((char) => (
             <Card3d char={char} key={char.id} />
           ))}
         </div>
-        <button onClick={selectAgain} className="btn--refresh" title="Refresh options">
-          <LuRefreshCcw />
-        </button>
+        {data.length && (
+          <button onClick={selectAgain} className="btn--refresh" title="Refresh options">
+            <LuRefreshCcw />
+          </button>
+        )}
       </div>
     </main>
   );
