@@ -1,0 +1,22 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn--refresh {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  transition: color 300ms ease-in-out;
+
+  &:hover {
+    color: gold;
+  }
+
+  &:active {
+    box-shadow: 1px 1px #0b4958;
+    transform: translateY(3px);
+  }
+}
