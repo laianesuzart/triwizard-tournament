@@ -52,7 +52,7 @@ function Menu({ ref }) {
           </Link>
         </li>
         <li>
-          <a href="https:/github.com/laianesuzart/" target="_blank" rel="noreferrer">
+          <a href="https://github.com/laianesuzart/" target="_blank" rel="noreferrer">
             <AiFillGithub className="icon" />
             <span className="text">github</span>
           </a>
