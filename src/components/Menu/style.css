@@ -52,7 +52,11 @@
         filter: grayscale(100%) opacity(0.7);
         transition: all 200ms ease-in-out;
 
-        &:is(:hover, :focus-visible) {
+        &:is(:hover) {
+          filter: grayscale(0) opacity(1);
+        }
+
+        &.active {
           filter: grayscale(0) opacity(1);
           background-color: #000f28;
         }

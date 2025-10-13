@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AiFillHome, AiFillGithub } from 'react-icons/ai';
 import { GiTrophyCup, GiCrystalWand } from 'react-icons/gi';
 import { FaAngleDoubleRight } from 'react-icons/fa';
@@ -34,22 +34,22 @@ function Menu({ ref }) {
           </a>
         </li>
         <li>
-          <Link to="/">
+          <NavLink exact to="/" activeClassName="active">
             <AiFillHome className="icon" />
             <span className="text">home</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/champions">
+          <NavLink to="/champions" activeClassName="active">
             <GiTrophyCup className="icon" />
             <span className="text">champions</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/members">
+          <NavLink to="/members" activeClassName="active">
             <GiCrystalWand className="icon" />
             <span className="text">members</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
           <a href="https://github.com/laianesuzart/" target="_blank" rel="noreferrer">
