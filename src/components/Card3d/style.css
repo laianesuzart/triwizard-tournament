@@ -1,7 +1,6 @@
 .card3d {
   border: 4px solid;
   border-radius: 20px;
-  animation: showUp 2s;
   cursor: pointer;
   transition: all 0.5s;
 
@@ -37,14 +36,5 @@
       height: 300px;
       object-fit: cover;
     }
-  }
-}
-
-@keyframes showUp {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
