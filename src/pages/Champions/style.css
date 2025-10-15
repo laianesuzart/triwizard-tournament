@@ -1,3 +1,7 @@
+.fade-in {
+  animation: showUp 2s;
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -10,7 +14,6 @@
   font-size: 1.5rem;
   margin-top: 1rem;
   transition: color 300ms ease-in-out;
-  animation: showUp 2s;
 
   &:is(:hover, :focus-visible) {
     color: gold;
@@ -33,6 +36,7 @@
   display: grid;
   place-items: center;
   background-color: #091943;
+  overflow: hidden;
   animation: 3.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-center forwards;
 
   svg {

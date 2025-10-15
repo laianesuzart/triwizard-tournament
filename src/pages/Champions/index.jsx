@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { LuRefreshCcw } from 'react-icons/lu';
 
@@ -34,6 +34,7 @@ function Champions() {
   const [highlightedCard, setHighlightedCard] = useState(null);
   const setLoading = useLoading((state) => state.setLoading);
   const openModal = useModal((state) => state.openModal);
+  const cardsRef = useRef();
 
   const randomIndex = (max) => {
     return Math.floor(Math.random() * max);
@@ -51,7 +52,12 @@ function Champions() {
   };
 
   const selectAgain = () => {
-    setSelected(getParticipants(data));
+    cardsRef.current.classList.remove('fade-in');
+
+    setTimeout(() => {
+      setSelected(getParticipants(data));
+      cardsRef.current.classList.add('fade-in');
+    }, 10);
     window.scrollTo(0, 0);
   };
 
@@ -100,13 +106,17 @@ function Champions() {
         <main className="container-flex">
           <h2>Choose your champion</h2>
           <div>
-            <div className="card-container">
+            <div className="card-container fade-in" ref={cardsRef}>
               {selected.map((char) => (
                 <Card3d char={char} key={char.id} onClick={() => setHighlightedCard(char)} />
               ))}
             </div>
             {data.length ? (
-              <button onClick={selectAgain} className="btn--refresh" title="Refresh options">
+              <button
+                onClick={selectAgain}
+                className="btn--refresh fade-in"
+                title="Refresh options"
+              >
                 <LuRefreshCcw />
               </button>
             ) : null}
