@@ -65,15 +65,23 @@ h3 {
   z-index: 200;
   background: linear-gradient(to right, #2f0743, #41295a);
   overflow: hidden;
-  svg:first-child {
+
+  svg {
+    margin-left: -40px;
     max-width: 100%;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .intro {
-    display: block;
-  }
+.wand {
+  fill: none;
+  stroke: gold;
+  stroke-width: 2;
+}
+
+.stars {
+  fill: none;
+  stroke: rgb(232, 254, 255);
+  stroke-width: 1;
 }
 
 @media screen and (min-width: 480px) {
